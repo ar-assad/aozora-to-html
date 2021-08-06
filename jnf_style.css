@@ -1,0 +1,81 @@
+﻿body
+{
+  line-height: 200%;
+  font-family: 'MS Mincho', sans-serif;
+  font-size: 14pt;
+
+  color: #000000;
+  background: #FFFFFF;
+
+  white-space: pre-wrap;
+  text-align: top;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+
+  block-size: 100%;
+
+  -ms-writing-mode: tb-rl;
+  -webkit-writing-mode: vertical-rl;
+  -moz-writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
+
+  -ms-text-orientation: sideways-left;
+  -webkit-text-orientation: sideways-left;
+  -moz-text-orientation: sideways-left;
+  text-orientation: sideways-left;
+}
+
+rt
+{
+  color: #000000;
+}
+
+a:link
+{
+  text-decoration: none;
+  color: #000000;
+}
+
+a:visited
+{
+  text-decoration: none;
+  color: #000000;
+}
+
+a:hover
+{
+  text-decoration: none;
+  color: #000000;
+}
+
+a:active
+{
+  text-decoration: none;
+  color: #000000;
+}
+
+a.nav:link
+{
+  text-decoration: underline;
+  color: #000000;
+}
+
+a.nav:visited
+{
+  text-decoration: underline;
+  color: #000000;
+}
+
+a.nav:hover
+{
+  text-decoration: underline;
+  color: #000000;
+}
+
+a.nav:active
+{
+  text-decoration: underline;
+  color: #000000;
+}
