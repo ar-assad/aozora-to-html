@@ -8,7 +8,7 @@
   background: #FFFFFF;
 
   white-space: pre-wrap;
-  text-align: top;
+  text-align: start;
   margin-top: 10px;
   margin-bottom: 20px;
   margin-left: 10px;
@@ -78,4 +78,8 @@ a.nav:active
 {
   text-decoration: underline;
   color: #000000;
+}
+
+img {
+  max-height: 100%;
 }
