@@ -6,6 +6,7 @@ import java.nio.charset.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 public class JNovelFormatter extends JFrame {
 	private JPanel panel = new JPanel();
@@ -139,6 +140,14 @@ public class JNovelFormatter extends JFrame {
 						JOptionPane.showMessageDialog(panel, "Failed to write file: " + output.toString());
 						x.printStackTrace();
 					}
+
+					// Copy the CSS file to the output directory
+					Path cssSource = Paths.get("jnf_style.css");
+					Path cssDestination = Paths.get(tfOutDir.getText() + "/jnf_style.css");
+					if (!Files.exists(cssDestination)) {
+						Files.copy(cssSource, cssDestination, StandardCopyOption.REPLACE_EXISTING);
+					}
+
 				} catch (IOException x) {
 					JOptionPane.showMessageDialog(panel, "Incorrect encoding");
 					x.printStackTrace();
