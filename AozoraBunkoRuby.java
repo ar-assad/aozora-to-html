@@ -14,11 +14,11 @@ public class AozoraBunkoRuby {
 	private HashMap<String, String> tenStyles;
 	private HashMap<String, String> senStyles;
 	
-	private static final String BOUTEN = "\u508d\u70b9";
-	private static final String BOUSEN = "\u7dda";
-	private static final String SPACING = "\u5B57\u4E0B\u3052";
+	private static final String BOUTEN = "傍点";
+	private static final String BOUSEN = "線";
+	private static final String SPACING = "字下げ";
 	
-	private static final String FW_INTS = "\uFF10\uFF11\uFF12\uFF13\uFF14\uFF15\uFF16\uFF17\uFF18\uFF19";
+	private static final String FW_INTS = "０１２３４５６７８９";
 	
 	public AozoraBunkoRuby(String text) {
 		this.text = text;
@@ -31,18 +31,18 @@ public class AozoraBunkoRuby {
 		this.liKanjiBou = new ArrayList<>();
 
 		this.tenStyles = new HashMap<>();
-		this.tenStyles.put("\u306b\u4E38\u508D\u70B9", "&#x25CF");
-		this.tenStyles.put("\u306b\u767D\u4E38\u508D\u70B9", "&#x25CB");
-		this.tenStyles.put("\u306b\u9ED2\u4E09\u89D2\u508D\u70B9", "&#x25B2");
-		this.tenStyles.put("\u306b\u767D\u4E09\u89D2\u508D\u70B9", "&#x25B3");
-		this.tenStyles.put("\u306b\u4E8C\u91CD\u4E38\u508D\u70B9", "&#x25CE");
-		this.tenStyles.put("\u306b\u3070\u3064\u508D\u70B9", "&#x00D7");
-		
+		this.tenStyles.put("に丸傍点", "&#x25CF"); // ● (black circle)
+		this.tenStyles.put("に白丸傍点", "&#x25CB"); // ○ (white circle)
+		this.tenStyles.put("に黒三角傍点", "&#x25B2"); // ▲ (black up-pointing triangle)
+		this.tenStyles.put("に白三角傍点", "&#x25B3"); // △ (white up-pointing triangle)
+		this.tenStyles.put("に二重丸傍点", "&#x25CE"); // ◎ (bullseye or double circle)
+		this.tenStyles.put("にばつ傍点", "&#x00D7"); // × (multiplication sign)
+
 		this.senStyles = new HashMap<>();
-		this.senStyles.put("\u306b\u4e8c\u91cd\u508d\u7dda", "text-decoration-style: double;");
-		this.senStyles.put("\u306b\u9396\u7dda", "text-decoration-style: dotted;");
-		this.senStyles.put("\u306b\u7834\u7dda", "text-decoration-style: dashed;");
-		this.senStyles.put("\u306b\u6ce2\u7dda", "text-decoration-style: wavy;");
+		this.senStyles.put("に二重傍線", "text-decoration-style: double;"); // 二重線 (double line)
+		this.senStyles.put("に鎖線", "text-decoration-style: dotted;"); // 鎖線 (dotted line)
+		this.senStyles.put("に破線", "text-decoration-style: dashed;"); // 破線 (dashed line)
+		this.senStyles.put("に波線", "text-decoration-style: wavy;"); // 波線 (wavy line)
 	}
 	
 	private void replacements() {
