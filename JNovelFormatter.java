@@ -1,14 +1,11 @@
 import javax.swing.*;
 import javax.swing.filechooser.*;
-import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import java.nio.charset.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.*;
-import java.util.stream.*;
 
 public class JNovelFormatter extends JFrame {
 	private JPanel panel = new JPanel();
@@ -117,6 +114,9 @@ public class JNovelFormatter extends JFrame {
 					sb.append("<head>");
 					sb.append("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />");
 					sb.append("<link rel='stylesheet' type='text/css' href='jnf_style.css' />");
+					sb.append("<script defer>");
+					sb.append("window.addEventListener(\"wheel\", function (event) { document.documentElement.scrollLeft -= event.deltaY; });");
+					sb.append("</script>");
 					sb.append("</head>");
 					sb.append("<body>");
 					
