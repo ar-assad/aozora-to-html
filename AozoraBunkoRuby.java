@@ -1,11 +1,4 @@
-import java.io.*;
-import java.nio.charset.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.*;
-import java.util.stream.*;
-
 public class AozoraBunkoRuby {
 	
 	private String text;
@@ -53,10 +46,27 @@ public class AozoraBunkoRuby {
 	}
 	
 	private void replacements() {
-		this.text = this.text.replaceAll("\uFF3B\uFF03\u633F\u7D75\uFF08", "<img src=\"");
-		this.text = this.text.replaceAll("\uFF09\u5165\u308B\uFF3D", "\">");
-		
-		this.text = this.text.replaceAll("\uFF3B\uFF03\u6539\u9801\uFF3D", "<br>");
+
+	// Handle Gothic font markers like 第一章［＃「第一章」はゴシック体］by adding bold MS Gothic font
+	this.text = this.text.replaceAll("(?m)^([^［]+)［＃「([^」]+)」はゴシック体］$", "<div style=\"font-family: 'MS Gothic'; font-weight: bold;\">$1</div>");
+
+	// Center-align the text for example ［＃地付き］スニーカー文庫編集部 should center the text スニーカー文庫編集部
+	this.text = this.text.replaceAll("(?m)^［＃地付き］([^］]+)$", "<div style=\"text-align: center;\">$1</div>");
+
+	// Replace ［＃ここから地付き］ to center-align the text
+    this.text = this.text.replaceAll("［＃ここから地付き］", "<div style=\"text-align: center;\">");
+
+    // Close the div tag for ［＃ここで地付き終わり］
+    this.text = this.text.replaceAll("［＃ここで地付き終わり］", "</div>");
+	
+	// Replace ［＃改ページ］ with a line break <br>
+    this.text = this.text.replaceAll("［＃改ページ］", "<br>");
+ 
+	// Match and replace image markers like ［＃表紙（img/01_0001a.jpg）］ and similar ones
+    this.text = this.text.replaceAll("［＃[^（]*（(img/[^）]+)）］", "<img src=\"$1\">");
+
+    // Match simpler image markers like ［＃（img/01_289.jpg）］
+    this.text = this.text.replaceAll("［＃（(img/[^）]+)）］", "<img src=\"$1\">");
 	}
 	
 	public String parse() {
